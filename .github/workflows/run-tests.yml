@@ -26,7 +26,7 @@ jobs:
 
       - name: 'Install, lint, and test'
         run: |
-          yarn install --frozen-lockfile
+          yarn install
           yarn test
         if: |
           contains(github.event.commits[0].message, '[skip ci]') == false &&
