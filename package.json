@@ -5,7 +5,10 @@
 	"bugs": {
 		"url": "https://github.com/bennycode/ts-node-starter/issues"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"dotenv": "16.0.2",
+		"ethers": "5.7.1"
+	},
 	"description": "",
 	"devDependencies": {
 		"@arkweid/lefthook": "0.7.7",
