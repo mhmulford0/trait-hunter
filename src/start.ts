@@ -5,9 +5,16 @@ dotenv.config();
 import {ethers} from 'ethers';
 
 import oracleAbi from './abi/oracle.json';
-import traitInfo from './nouns-image-data.json';
+import head from './heads.json';
 
-const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
+import {Network, Alchemy} from 'alchemy-sdk';
+
+const settings = {
+	apiKey: 'hx0S1XgmMkpi_zwTwB9zWhFFCZK3U16r',
+	network: Network.ETH_MAINNET,
+};
+
+const provider = new ethers.providers.WebSocketProvider(process.env.RPC_URL || '');
 // const signer = provider.getSigner();
 
 const CONTRACT_ADDRESS = '0x6c3810649c140d2f43Ec4D88B2f733e1375E4C74';
@@ -30,8 +37,8 @@ const main = async () => {
 		returnObj.body = nextLil[4].body;
 		returnObj.glasses = nextLil[4].glasses;
 		returnObj.head = nextLil[4].head;
-		const test = traitInfo.images.heads.at(nextLil[4].head);
-		console.log(test?.filename);
+		const test = head.heads.at(nextLil[4].head);
+		console.log(test?.filename.split('-')[1]);
 	});
 };
 
