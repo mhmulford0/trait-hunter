@@ -41,7 +41,6 @@
 		"@typescript-eslint/prefer-readonly": "error",
 		"@typescript-eslint/return-await": ["error", "in-try-catch"],
 		"@typescript-eslint/typedef": "off",
-		"curly": "error",
 		"dot-notation": "off",
 		"no-cond-assign": "error",
 		"no-console": "off",

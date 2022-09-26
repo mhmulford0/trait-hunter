@@ -9,6 +9,7 @@
 		"@prisma/client": "4.3.1",
 		"alchemy-sdk": "2.0.5-rc1",
 		"concurrently": "7.4.0",
+		"discord.js": "14.5.0",
 		"dotenv": "16.0.2",
 		"ethers": "5.7.1",
 		"express": "4.18.1",
@@ -85,6 +86,7 @@
 		"prod:api": "node dist/server.js",
 		"dev:api": "ts-node-dev --respawn --transpile-only --files src/server.ts",
 		"dev:hunter": "ts-node-dev --respawn --transpile-only src/hunter.ts",
+		"dev:bot": "ts-node-dev --respawn --transpile-only src/traitBot.ts",
 		"start": "concurrently \"yarn prod:api \" \"yarn prod:hunter \""
 	},
 	"version": "0.0.0"
