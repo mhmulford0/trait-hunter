@@ -1,10 +1,10 @@
-import * as dotenv from 'dotenv';
-
+import {PrismaClient} from '@prisma/client';
 import {Alchemy, Network} from 'alchemy-sdk';
+import * as dotenv from 'dotenv';
 import {ethers} from 'ethers';
-import head from './heads.json';
 
 import oracleAbi from './abi/oracle.json';
+import head from './heads.json';
 
 dotenv.config();
 
@@ -44,6 +44,8 @@ export enum AuctionState {
 const main = () => {
 	alchemy.ws.on('block', async blockNumber => {
 		console.log(blockNumber);
+
+		const prisma = new PrismaClient();
 
 		try {
 			const nextLil = await oracleContract.fetchNextNoun({blockTag: 'pending'});

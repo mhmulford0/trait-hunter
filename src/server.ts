@@ -1,6 +1,5 @@
-import * as dotenv from 'dotenv';
-
 import {Alchemy, Network} from 'alchemy-sdk';
+import * as dotenv from 'dotenv';
 import express from 'express';
 
 dotenv.config();
@@ -28,7 +27,15 @@ app.get('/', async (req, res) => {
 	console.log(returnData.length, 'my filter');
 	console.log(nfts.totalCount, 'api count');
 
+	// hello
+
 	res.send(returnData);
+});
+
+app.get('/datastream', async (_, res) => {
+	// fetch database, write out
+
+	res.send('');
 });
 
 app.listen(port, () => {

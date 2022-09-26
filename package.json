@@ -6,7 +6,9 @@
 		"url": "https://github.com/bennycode/ts-node-starter/issues"
 	},
 	"dependencies": {
+		"@prisma/client": "4.3.1",
 		"alchemy-sdk": "2.0.5-rc1",
+		"concurrently": "7.4.0",
 		"dotenv": "16.0.2",
 		"ethers": "5.7.1",
 		"express": "4.18.1"
@@ -23,6 +25,7 @@
 		"eslint": "8.24.0",
 		"eslint-config-prettier": "8.5.0",
 		"eslint-plugin-prettier": "4.2.1",
+		"eslint-plugin-simple-import-sort": "8.0.0",
 		"eslint-plugin-sort-keys-fix": "1.1.2",
 		"eslint-plugin-typescript-sort-keys": "2.1.0",
 		"eslint-plugin-unused-imports": "2.0.0",
@@ -59,7 +62,7 @@
 		"build": "tsc",
 		"changelog:commit": "git add CHANGELOG.md && git commit -m \"docs: updated CHANGELOG.md\"",
 		"clean": "rimraf .nyc_output coverage dist",
-		"debug": "node --inspect -r ts-node/register ./src/start.ts",
+		"debug": "node --inspect -r ts-node/register ./src/hunter.ts",
 		"dist": "yarn clean && yarn build",
 		"fix": "yarn fix:config && yarn fix:code",
 		"fix:code": "yarn lint:code --fix --quiet",
@@ -73,12 +76,13 @@
 		"release:major": "generate-changelog -M -x \"chore,test\" && yarn changelog:commit && npm version major",
 		"release:minor": "generate-changelog -m -x \"chore,test\" && yarn changelog:commit && npm version minor",
 		"release:patch": "generate-changelog -p -x \"chore,test\" && yarn changelog:commit && npm version patch",
-		"start": "ts-node ./src/start.ts",
+		"start": "ts-node ./src/hunter.ts",
 		"test": "yarn test:types && yarn test:unit:coverage",
 		"test:types": "tsc --noEmit",
 		"test:unit": "cross-env NODE_ENV=test jest ./src --passWithNoTests",
 		"test:unit:coverage": "yarn test:unit --coverage",
-		"dev": "yarn nodemon src/start.ts"
+		"dev:hunter": "yarn nodemon src/hunter.ts",
+		"dev:api": "yarn nodemon src/server.ts"
 	},
 	"version": "0.0.0"
 }

@@ -18,7 +18,8 @@
 		"typescript-sort-keys",
 		"prettier",
 		"sort-keys-fix",
-		"unused-imports"
+		"unused-imports",
+		"simple-import-sort"
 	],
 	"rules": {
 		"@typescript-eslint/array-type": "error",
@@ -75,7 +76,6 @@
 		"prefer-arrow-callback": "error",
 		"prefer-const": "error",
 		"prefer-promise-reject-errors": "error",
-		"sort-imports": 1,
 		"sort-keys": [
 			"warn",
 			"asc",
@@ -102,6 +102,8 @@
 				"caseSensitive": false
 			}
 		],
-		"unused-imports/no-unused-imports-ts": "warn"
+		"unused-imports/no-unused-imports-ts": "warn",
+		"simple-import-sort/imports": "warn",
+		"simple-import-sort/exports": "warn"
 	}
 }
