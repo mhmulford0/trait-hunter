@@ -14,25 +14,11 @@ app.use(helmet());
 
 app.disable('x-powered-by');
 
-app.get('/', async (req, res) => {
-	console.log(req.method);
-
-	const nfts = await alchemy.nft.getNftsForOwner('mulford.eth');
-
-	const returnData: unknown[] = [];
-
-	nfts.ownedNfts.map(async nft => {
-		returnData.push(nft.media[0]);
-	});
-	console.log(returnData.length, 'my filter');
-	console.log(nfts.totalCount, 'api count');
-
-	// hello
-	res.send(returnData);
+app.get('/', async (_, res) => {
+	res.send({status: 'running'});
 });
 
 app.get('/datastream', async (_, res) => {
-	// fetch database, write out
 	const data = await prisma.lil.findMany({});
 
 	res.send(data);
