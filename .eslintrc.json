@@ -75,7 +75,7 @@
 		"prefer-arrow-callback": "error",
 		"prefer-const": "error",
 		"prefer-promise-reject-errors": "error",
-		"sort-imports": "off",
+		"sort-imports": 1,
 		"sort-keys": [
 			"warn",
 			"asc",
@@ -102,6 +102,6 @@
 				"caseSensitive": false
 			}
 		],
-		"unused-imports/no-unused-imports-ts": "error"
+		"unused-imports/no-unused-imports-ts": "warn"
 	}
 }
