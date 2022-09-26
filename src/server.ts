@@ -1,7 +1,6 @@
 import * as dotenv from 'dotenv';
 import express from 'express';
 
-import {alchemy} from './core/alchemy';
 import {prisma} from './core/prismaClient';
 
 dotenv.config();
