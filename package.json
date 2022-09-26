@@ -11,7 +11,8 @@
 		"concurrently": "7.4.0",
 		"dotenv": "16.0.2",
 		"ethers": "5.7.1",
-		"express": "4.18.1"
+		"express": "4.18.1",
+		"helmet": "6.0.0"
 	},
 	"description": "",
 	"devDependencies": {
@@ -76,15 +77,15 @@
 		"release:major": "generate-changelog -M -x \"chore,test\" && yarn changelog:commit && npm version major",
 		"release:minor": "generate-changelog -m -x \"chore,test\" && yarn changelog:commit && npm version minor",
 		"release:patch": "generate-changelog -p -x \"chore,test\" && yarn changelog:commit && npm version patch",
-		"start": "ts-node ./src/hunter.ts",
 		"test": "yarn test:types && yarn test:unit:coverage",
 		"test:types": "tsc --noEmit",
 		"test:unit": "cross-env NODE_ENV=test jest ./src --passWithNoTests",
 		"test:unit:coverage": "yarn test:unit --coverage",
-		"prod:hunter": "node dist/server.js",
+		"prod:hunter": "node dist/hunter.js",
 		"prod:api": "node dist/server.js",
-		"dev:api": "ts-node-dev --respawn --transpile-only src/server.ts",
-		"dev:hunter": "ts-node-dev --respawn --transpile-only src/hunter.ts"
+		"dev:api": "ts-node-dev --respawn --transpile-only --files src/server.ts",
+		"dev:hunter": "ts-node-dev --respawn --transpile-only src/hunter.ts",
+		"start": "concurrently \"yarn prod:api \" \"yarn prod:hunter \""
 	},
 	"version": "0.0.0"
 }

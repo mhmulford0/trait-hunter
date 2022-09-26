@@ -8,6 +8,11 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 8080; // default port to listen
+const helmet = require('helmet');
+
+app.use(helmet());
+
+app.disable('x-powered-by');
 
 app.get('/', async (req, res) => {
 	console.log(req.method);
@@ -30,7 +35,7 @@ app.get('/datastream', async (_, res) => {
 	// fetch database, write out
 	const data = await prisma.lil.findMany({});
 	console.log(data);
-	res.send('');
+	res.send({...data, items: data.length});
 });
 
 app.listen(port, () => {

@@ -64,11 +64,6 @@ const main = () => {
 				console.log('Starting Auction');
 			}
 
-			if (traitName === 'unicorn') {
-				console.log('FOUND A 🦄 UNICORN');
-				console.log('Starting Auction');
-			}
-
 			if (traitName === 'peyote') {
 				console.log('FOUND A 🌻 PEYOTE');
 				console.log('Starting Auction');
