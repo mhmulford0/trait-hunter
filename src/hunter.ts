@@ -1,19 +1,12 @@
-import {PrismaClient} from '@prisma/client';
-import {Alchemy, Network} from 'alchemy-sdk';
 import * as dotenv from 'dotenv';
 import {ethers} from 'ethers';
 
 import oracleAbi from './abi/oracle.json';
+import {alchemy} from './core/alchemy';
+import {prisma} from './core/prismaClient';
 import head from './heads.json';
 
 dotenv.config();
-
-const settings = {
-	apiKey: process.env.API_KEY,
-	network: Network.ETH_MAINNET,
-};
-
-const alchemy = new Alchemy(settings);
 
 const provider = new ethers.providers.WebSocketProvider(
 	`wss://eth-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`
@@ -45,8 +38,6 @@ const main = () => {
 	alchemy.ws.on('block', async blockNumber => {
 		console.log(blockNumber);
 
-		const prisma = new PrismaClient();
-
 		try {
 			const nextLil = await oracleContract.fetchNextNoun({blockTag: 'pending'});
 
@@ -58,6 +49,15 @@ const main = () => {
 			const headTrait = head.heads.at(nextLil[4].head);
 			const traitName = headTrait?.filename.split('-')[1];
 			console.log(`Head On the Block: ${traitName}`);
+
+			if (traitName) {
+				await prisma.lil.create({
+					data: {
+						blockNumber,
+						head: traitName,
+					},
+				});
+			}
 
 			if (traitName === 'panda') {
 				console.log('FOUND A 🐼 PANDA');

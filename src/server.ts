@@ -1,18 +1,13 @@
-import {Alchemy, Network} from 'alchemy-sdk';
 import * as dotenv from 'dotenv';
 import express from 'express';
+
+import {alchemy} from './core/alchemy';
+import {prisma} from './core/prismaClient';
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 8080; // default port to listen
-
-const settings = {
-	apiKey: process.env.API_KEY,
-	network: Network.ETH_MAINNET,
-};
-
-const alchemy = new Alchemy(settings);
 
 app.get('/', async (req, res) => {
 	console.log(req.method);
@@ -28,13 +23,13 @@ app.get('/', async (req, res) => {
 	console.log(nfts.totalCount, 'api count');
 
 	// hello
-
 	res.send(returnData);
 });
 
 app.get('/datastream', async (_, res) => {
 	// fetch database, write out
-
+	const data = await prisma.lil.findMany({});
+	console.log(data);
 	res.send('');
 });
 
