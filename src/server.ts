@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
 app.get('/datastream', async (_, res) => {
 	// fetch database, write out
 	const data = await prisma.lil.findMany({});
-	console.log(data);
+
 	res.send([{data, items: data.length}]);
 });
 
