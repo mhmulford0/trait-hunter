@@ -2,9 +2,6 @@
 	"bin": {
 		"ts-node-starter": "dist/cli.js"
 	},
-	"bugs": {
-		"url": "https://github.com/bennycode/ts-node-starter/issues"
-	},
 	"dependencies": {
 		"@prisma/client": "4.3.1",
 		"alchemy-sdk": "2.0.5-rc1",
@@ -54,12 +51,8 @@
 	"keywords": [],
 	"license": "UNLICENSED",
 	"main": "dist/index.js",
-	"name": "@bennycode/ts-node-starter",
+	"name": "trait-hunter-backend",
 	"private": false,
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/bennycode/ts-node-starter.git"
-	},
 	"scripts": {
 		"build": "tsc",
 		"changelog:commit": "git add CHANGELOG.md && git commit -m \"docs: updated CHANGELOG.md\"",
