@@ -7,9 +7,13 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 8080; // default port to listen
-const helmet = require('helmet');
+import helmet from 'helmet';
 
-app.use(helmet());
+app.use(
+	helmet({
+		crossOriginResourcePolicy: {policy: 'cross-origin'},
+	})
+);
 
 app.disable('x-powered-by');
 
