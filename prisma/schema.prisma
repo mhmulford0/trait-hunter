@@ -11,6 +11,9 @@ datasource db {
 }
 
 model Lil {
-  blockNumber Int    @id
-  head        String
+  accessory       String
+  backgroundColor String
+  blockNumber     Int    @id
+  glasses         String?
+  head            String
 }

@@ -80,7 +80,7 @@
 		"prod:hunter": "node dist/hunter.js",
 		"prod:api": "node dist/server.js",
 		"dev:api": "ts-node-dev --respawn --transpile-only --files src/server.ts",
-		"dev:hunter": "ts-node-dev --respawn --transpile-only src/hunter.ts",
+		"dev:hunter": "ts-node-dev --respawn src/hunter.ts",
 		"dev:bot": "ts-node-dev --respawn --transpile-only src/traitBot.ts",
 		"start": "concurrently \"yarn prod:api \" \"yarn prod:hunter \""
 	},

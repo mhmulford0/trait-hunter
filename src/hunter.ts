@@ -5,6 +5,7 @@ import oracleAbi from './abi/oracle.json';
 import {alchemy} from './core/alchemy';
 import {prisma} from './core/prismaClient';
 import head from './heads.json';
+import traitData from './nouns-image-data.json';
 
 dotenv.config();
 
@@ -46,30 +47,43 @@ const main = () => {
 				return;
 			}
 
-			const headTrait = head.heads.at(nextLil[4].head);
-			const traitName = headTrait?.filename.split('-')[1];
-			console.log(`Head On the Block: ${traitName}`);
+			const headInfo = head.heads.at(nextLil[4].head);
+			const bgTrait = traitData.bgcolors.at(nextLil[4].background);
+			const accessory = traitData.images.accessories.at(nextLil[4].accessory);
+			const glasses = traitData.images.glasses.at(nextLil[4].glasses);
+			const headTrait = headInfo?.filename.split('-')[1];
 
-			if (traitName) {
+			const accessoryTrait = accessory?.filename.slice(accessory.filename.indexOf('-') + 1);
+			const glassesTrait = glasses?.filename.slice(glasses.filename.indexOf('-') + 1);
+
+			console.log(`accessory: ${accessoryTrait}`);
+			console.log(`background: # ${bgTrait}`);
+			console.log(`glasses: ${glassesTrait}`);
+			console.log(`head: ${headTrait}`);
+
+			if (accessoryTrait && bgTrait && headTrait) {
 				await prisma.lil.create({
 					data: {
+						accessory: accessoryTrait,
+						backgroundColor: bgTrait,
 						blockNumber,
-						head: traitName,
+						glasses: glassesTrait,
+						head: headTrait,
 					},
 				});
 			}
 
-			if (traitName === 'panda') {
+			if (headTrait === 'panda') {
 				console.log('FOUND A 🐼 PANDA');
 				console.log('Starting Auction');
 			}
 
-			if (traitName === 'peyote') {
+			if (headTrait === 'peyote') {
 				console.log('FOUND A 🌻 PEYOTE');
 				console.log('Starting Auction');
 			}
 		} catch (err) {
-			console.log(err);
+			// console.log(err);
 		}
 	});
 };
