@@ -1,3 +1,4 @@
+import cors from 'cors';
 import * as dotenv from 'dotenv';
 import express from 'express';
 
@@ -16,6 +17,11 @@ app.use(
 );
 
 app.disable('x-powered-by');
+app.use(
+	cors({
+		preflightContinue: true,
+	})
+);
 
 app.get('/', async (_, res) => {
 	res.send({status: 'running'});
