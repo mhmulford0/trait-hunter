@@ -68,8 +68,8 @@ const main = () => {
 				console.log('FOUND A 🌻 PEYOTE');
 				console.log('Starting Auction');
 			}
-		} catch {
-			throw new Error('Error with bot');
+		} catch (err) {
+			console.log(err);
 		}
 	});
 };

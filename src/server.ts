@@ -18,7 +18,13 @@ app.get('/', async (_, res) => {
 });
 
 app.get('/datastream', async (_, res) => {
-	const data = await prisma.lil.findMany({});
+	const data = await prisma.lil.findMany({
+		orderBy: {
+			blockNumber: 'desc',
+		},
+		skip: 0,
+		take: 100,
+	});
 
 	res.send(data);
 });
