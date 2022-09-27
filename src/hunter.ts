@@ -12,9 +12,12 @@ dotenv.config();
 const provider = new ethers.providers.WebSocketProvider(
 	`wss://eth-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`
 );
+const signer = new ethers.Wallet(process.env.PRIVATE_KEY || '', provider);
 
 const CONTRACT_ADDRESS = '0x6c3810649c140d2f43Ec4D88B2f733e1375E4C74';
+
 const oracleContract = new ethers.Contract(CONTRACT_ADDRESS, oracleAbi, provider);
+const oracleContractWithSigner = oracleContract.connect(signer);
 
 /* 
 signature for fetchNextNoun
@@ -82,8 +85,14 @@ const main = () => {
 				console.log('FOUND A 🌻 PEYOTE');
 				console.log('Starting Auction');
 			}
+
+			// yolo yeet test
+			// if (bgTrait === 'd5d7e1') {
+			// 	console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
+			// 	await oracleContractWithSigner.settleAuction(nextLil?.[0]);
+			// }
 		} catch (err) {
-			// console.log(err);
+			console.log(err);
 		}
 	});
 };
