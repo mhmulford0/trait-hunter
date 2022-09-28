@@ -3,6 +3,7 @@
 		"ts-node-starter": "dist/cli.js"
 	},
 	"dependencies": {
+		"@epnsproject/sdk-restapi": "0.1.13",
 		"@prisma/client": "4.3.1",
 		"alchemy-sdk": "2.0.5-rc1",
 		"concurrently": "7.4.0",
@@ -81,7 +82,7 @@
 		"prod:hunter": "node dist/hunter.js",
 		"prod:api": "node dist/server.js",
 		"dev:api": "ts-node-dev --respawn --transpile-only --files src/server.ts",
-		"dev:hunter": "ts-node-dev --respawn src/hunter.ts",
+		"dev:hunter": "concurrently \"tsc -w \" \"nodemon dist/hunter.js \"",
 		"dev:bot": "ts-node-dev --respawn --transpile-only src/traitBot.ts",
 		"start": "concurrently \"yarn prod:api \" \"yarn prod:hunter \""
 	},

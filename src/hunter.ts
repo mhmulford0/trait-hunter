@@ -3,6 +3,7 @@ import {ethers} from 'ethers';
 
 import oracleAbi from './abi/oracle.json';
 import {alchemy} from './core/alchemy';
+import {AuctionState} from './core/AuctionState';
 import {prisma} from './core/prismaClient';
 import head from './heads.json';
 import traitData from './nouns-image-data.json';
@@ -19,27 +20,8 @@ const CONTRACT_ADDRESS = '0x6c3810649c140d2f43Ec4D88B2f733e1375E4C74';
 const oracleContract = new ethers.Contract(CONTRACT_ADDRESS, oracleAbi, provider);
 const oracleContractWithSigner = oracleContract.connect(signer);
 
-/* 
-signature for fetchNextNoun
-  return (
-    [0] blockhash(block.number - 1),
-    [1] nounId,
-    [2] svg,
-    [3] auctionState,
-    [4] nextNounSeed
-
-  );
-*/
-
-export enum AuctionState {
-	NOT_STARTED,
-	ACTIVE,
-	OVER_NOT_SETTLED,
-	OVER_AND_SETTLED,
-}
-
 const main = () => {
-	alchemy.ws.on('block', async blockNumber => {
+	alchemy.ws.on('block', async (blockNumber: number) => {
 		console.log(blockNumber);
 
 		try {
@@ -64,6 +46,12 @@ const main = () => {
 			console.log(`glasses: ${glassesTrait}`);
 			console.log(`head: ${headTrait}`);
 
+			if (headTrait === 'panda') {
+				console.log('FOUND A 🐼 PANDA');
+				console.log('Starting Auction');
+				// console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
+				// await oracleContractWithSigner.settleAuction(nextLil?.[0]);
+			}
 			if (accessoryTrait && bgTrait && headTrait) {
 				await prisma.lil.create({
 					data: {
@@ -75,22 +63,6 @@ const main = () => {
 					},
 				});
 			}
-
-			if (headTrait === 'panda') {
-				console.log('FOUND A 🐼 PANDA');
-				console.log('Starting Auction');
-			}
-
-			if (headTrait === 'peyote') {
-				console.log('FOUND A 🌻 PEYOTE');
-				console.log('Starting Auction');
-			}
-
-			// yolo yeet test
-			// if (bgTrait === 'd5d7e1') {
-			// 	console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
-			// 	await oracleContractWithSigner.settleAuction(nextLil?.[0]);
-			// }
 		} catch (err) {
 			console.log(err);
 		}
