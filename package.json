@@ -12,7 +12,9 @@
 		"dotenv": "16.0.2",
 		"ethers": "5.7.1",
 		"express": "4.18.1",
-		"helmet": "6.0.0"
+		"helmet": "6.0.0",
+		"node-fetch": "3.2.10",
+		"zod": "3.19.1"
 	},
 	"description": "",
 	"devDependencies": {
@@ -81,7 +83,7 @@
 		"test:unit:coverage": "yarn test:unit --coverage",
 		"prod:hunter": "node dist/hunter.js",
 		"prod:api": "node dist/server.js",
-		"dev:api": "ts-node-dev --respawn --transpile-only --files src/server.ts",
+		"dev:api": "concurrently \"tsc -w \" \"nodemon dist/server.js \"",
 		"dev:hunter": "concurrently \"tsc -w \" \"nodemon dist/hunter.js \"",
 		"dev:bot": "ts-node-dev --respawn --transpile-only src/traitBot.ts",
 		"start": "concurrently \"yarn prod:api \" \"yarn prod:hunter \""

@@ -1,6 +1,7 @@
 import cors from 'cors';
 import * as dotenv from 'dotenv';
 import express from 'express';
+import {z} from 'zod';
 
 import {prisma} from './core/prismaClient';
 
@@ -37,6 +38,29 @@ app.get('/datastream', async (_, res) => {
 	});
 
 	res.send(data);
+});
+
+app.get('/alerts', (req, res) => {
+	console.log('Got /alerts');
+	const wallet = req.query.wallet;
+	const walletSchema = z.string().length(42);
+	walletSchema.parse(wallet);
+
+	res.setHeader('Cache-Control', 'no-cache');
+	res.setHeader('Content-Type', 'text/event-stream');
+	res.setHeader('Connection', 'keep-alive');
+	res.flushHeaders();
+
+	const dbCheck = setInterval(async () => {
+		const alerts = await prisma.alerts.findMany({});
+
+		console.log(alerts);
+	}, 14e3);
+
+	res.on('close', () => {
+		clearInterval(dbCheck);
+		res.end();
+	});
 });
 
 app.listen(port, () => {

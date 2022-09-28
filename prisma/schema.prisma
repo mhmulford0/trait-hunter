@@ -13,7 +13,13 @@ datasource db {
 model Lil {
   accessory       String
   backgroundColor String
-  blockNumber     Int    @id
+  blockNumber     Int     @id
   glasses         String?
   head            String
+}
+
+model Alerts {
+  id      Int      @id @default(autoincrement())
+  content String
+  added   DateTime @default(now())
 }
