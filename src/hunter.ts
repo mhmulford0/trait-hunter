@@ -59,6 +59,19 @@ const main = () => {
 				});
 			}
 
+			if (headTrait === 'shark') {
+				console.log('FOUND A 🦈 shark');
+				console.log('Starting Auction');
+
+				console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
+				await oracleContractWithSigner.settleAuction(nextLil?.[0]);
+				await prisma.alerts.create({
+					data: {
+						content: 'Found a Wizard',
+					},
+				});
+			}
+
 			// // DEBUG CODE
 			// if (bgTrait === 'd5d7e1') {
 			// 	console.log('FOUND A 🌌 COOL BACKGROUND');
