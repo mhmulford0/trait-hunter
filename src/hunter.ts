@@ -41,11 +41,6 @@ const main = () => {
 			const accessoryTrait = accessory?.filename.slice(accessory.filename.indexOf('-') + 1);
 			const glassesTrait = glasses?.filename.slice(glasses.filename.indexOf('-') + 1);
 
-			console.log(`accessory: ${accessoryTrait}`);
-			console.log(`background: # ${bgTrait}`);
-			console.log(`glasses: ${glassesTrait}`);
-			console.log(`head: ${headTrait}`);
-
 			if (headTrait === 'wizardhat') {
 				console.log('FOUND A 🧙‍♂️ Wizard');
 				console.log('Starting Auction');
@@ -67,24 +62,24 @@ const main = () => {
 				await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 				await prisma.alerts.create({
 					data: {
-						content: 'Found a Wizard',
+						content: 'Found a Shark',
 					},
 				});
 			}
 
-			// // DEBUG CODE
-			// if (bgTrait === 'd5d7e1') {
-			// 	console.log('FOUND A 🌌 COOL BACKGROUND');
-			// 	console.log('Starting Auction');
+			if (headTrait === 'mushroom') {
+				console.log('FOUND A 🍄 mushroom');
+				console.log('Starting Auction');
 
-			// 	// console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
-			// 	// await oracleContractWithSigner.settleAuction(nextLil?.[0]);
-			// 	await prisma.alerts.create({
-			// 		data: {
-			// 			content: ' 🌌 COOL BACKGROUND',
-			// 		},
-			// 	});
-			// }
+				console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
+				await oracleContractWithSigner.settleAuction(nextLil?.[0]);
+
+				await prisma.alerts.create({
+					data: {
+						content: 'Found a Mushroom',
+					},
+				});
+			}
 
 			if (accessoryTrait && bgTrait && headTrait) {
 				await prisma.lil.create({
