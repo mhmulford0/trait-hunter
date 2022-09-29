@@ -46,15 +46,15 @@ const main = () => {
 			console.log(`glasses: ${glassesTrait}`);
 			console.log(`head: ${headTrait}`);
 
-			if (headTrait === 'panda') {
-				console.log('FOUND A 🐼 PANDA');
+			if (headTrait === 'wizardhat') {
+				console.log('FOUND A 🧙‍♂️ Wizard');
 				console.log('Starting Auction');
 
-				// console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
-				// await oracleContractWithSigner.settleAuction(nextLil?.[0]);
+				console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
+				await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 				await prisma.alerts.create({
 					data: {
-						content: 'Found a panda',
+						content: 'Found a Wizard',
 					},
 				});
 			}
