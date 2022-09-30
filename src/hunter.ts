@@ -46,7 +46,7 @@ const main = () => {
 				console.log('Starting Auction');
 
 				console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
-				await oracleContractWithSigner.settleAuction(nextLil?.[0]);
+				// await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 				await prisma.alerts.create({
 					data: {
 						content: 'Found a MOOSE',
@@ -59,7 +59,7 @@ const main = () => {
 				console.log('Starting Auction');
 
 				console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
-				await oracleContractWithSigner.settleAuction(nextLil?.[0]);
+				// await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 				await prisma.alerts.create({
 					data: {
 						content: 'Found a Shark',
@@ -72,7 +72,7 @@ const main = () => {
 				console.log('Starting Auction');
 
 				console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
-				await oracleContractWithSigner.settleAuction(nextLil?.[0]);
+				// await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 
 				await prisma.alerts.create({
 					data: {
