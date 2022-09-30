@@ -40,7 +40,7 @@ app.get('/datastream', async (_, res) => {
 	res.send(data);
 });
 
-app.get('/alerts', (req, res) => {
+app.get('/alerts', async (req, res) => {
 	console.log('Got /alerts');
 	const wallet = req.query.wallet;
 	const walletSchema = z.string().length(42);
@@ -51,9 +51,9 @@ app.get('/alerts', (req, res) => {
 	res.setHeader('Connection', 'keep-alive');
 	res.flushHeaders();
 
-	const dbCheck = setInterval(async () => {
-		const alerts = await prisma.alerts.findMany({});
+	const alerts = await prisma.alerts.findMany({});
 
+	const dbCheck = setInterval(async () => {
 		console.log(alerts);
 		res.write(alerts);
 	}, 14e3);
