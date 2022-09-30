@@ -55,7 +55,7 @@ app.get('/alerts', async (req, res) => {
 
 	const dbCheck = setInterval(async () => {
 		console.log(alerts);
-		res.write(alerts);
+		res.write(JSON.stringify(alerts));
 	}, 14e3);
 
 	res.on('close', () => {
