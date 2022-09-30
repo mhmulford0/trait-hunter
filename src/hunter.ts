@@ -42,14 +42,14 @@ const main = () => {
 			const glassesTrait = glasses?.filename.slice(glasses.filename.indexOf('-') + 1);
 
 			if (headTrait === 'wizardhat') {
-				console.log('FOUND A 🧙‍♂️ Wizard');
+				console.log('FOUND A 🦌 moose');
 				console.log('Starting Auction');
 
 				console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
 				await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 				await prisma.alerts.create({
 					data: {
-						content: 'Found a Wizard',
+						content: 'Found a MOOSE',
 					},
 				});
 			}
