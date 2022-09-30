@@ -55,6 +55,7 @@ app.get('/alerts', (req, res) => {
 		const alerts = await prisma.alerts.findMany({});
 
 		console.log(alerts);
+		res.write(alerts);
 	}, 14e3);
 
 	res.on('close', () => {
