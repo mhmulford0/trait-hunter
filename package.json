@@ -86,7 +86,7 @@
 		"dev:api": "concurrently \"tsc -w \" \"nodemon dist/server.js \"",
 		"dev:hunter": "concurrently \"tsc -w \" \"nodemon dist/hunter.js \"",
 		"dev:bot": "ts-node-dev --respawn --transpile-only src/traitBot.ts",
-		"start": "concurrently \"yarn prod:api \" \"yarn prod:hunter \""
+		"start": "concurrently \"pnpm prod:api \" \"pnpm prod:hunter \""
 	},
 	"version": "0.0.0"
 }
