@@ -4,8 +4,9 @@
 	},
 	"dependencies": {
 		"@epnsproject/sdk-restapi": "0.1.13",
+		"@evilmartians/lefthook": "^1.1.1",
 		"@prisma/client": "4.3.1",
-		"alchemy-sdk": "2.0.5-rc1",
+		"alchemy-sdk": "2.1.0",
 		"concurrently": "7.4.0",
 		"cors": "2.8.5",
 		"discord.js": "14.5.0",
@@ -18,7 +19,6 @@
 	},
 	"description": "",
 	"devDependencies": {
-		"@arkweid/lefthook": "0.7.7",
 		"@types/cors": "2.8.12",
 		"@types/express": "4.17.14",
 		"@types/jest": "28.1.6",
