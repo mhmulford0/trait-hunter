@@ -41,7 +41,7 @@ const main = () => {
 			const accessoryTrait = accessory?.filename.slice(accessory.filename.indexOf('-') + 1);
 			const glassesTrait = glasses?.filename.slice(glasses.filename.indexOf('-') + 1);
 
-			if (headTrait === 'wizardhat') {
+			if (headTrait === 'moose') {
 				console.log('FOUND A 🦌 moose');
 				console.log('Starting Auction');
 
