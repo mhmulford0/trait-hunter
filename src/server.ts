@@ -36,7 +36,7 @@ app.get('/datastream', async (_, res) => {
 		skip: 0,
 		take: 100,
 	});
-
+	res.setHeader('Cache-Control', 'public, max-age=13');
 	res.send(data);
 });
 
