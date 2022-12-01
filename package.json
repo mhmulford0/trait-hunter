@@ -3,7 +3,7 @@
 		"ts-node-starter": "dist/cli.js"
 	},
 	"dependencies": {
-		"@epnsproject/sdk-restapi": "0.1.13",
+		"@epnsproject/sdk-restapi": "0.1.20",
 		"@evilmartians/lefthook": "^1.1.1",
 		"@prisma/client": "4.7.0",
 		"alchemy-sdk": "2.1.0",
