@@ -6,7 +6,7 @@
 		"@epnsproject/sdk-restapi": "0.1.13",
 		"@evilmartians/lefthook": "^1.1.1",
 		"@prisma/client": "4.7.0",
-		"alchemy-sdk": "2.1.0",
+		"alchemy-sdk": "2.2.3",
 		"concurrently": "7.6.0",
 		"cors": "2.8.5",
 		"discord.js": "14.7.0",
