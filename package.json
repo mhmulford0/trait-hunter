@@ -7,7 +7,7 @@
 		"@evilmartians/lefthook": "^1.1.1",
 		"@prisma/client": "4.15.0",
 		"alchemy-sdk": "2.8.3",
-		"concurrently": "8.0.1",
+		"concurrently": "8.2.0",
 		"cors": "2.8.5",
 		"discord.js": "14.11.0",
 		"dotenv": "16.1.3",
