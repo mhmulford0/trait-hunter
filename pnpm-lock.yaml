@@ -9,8 +9,8 @@ dependencies:
     specifier: 0.1.20
     version: 0.1.20(ethers@5.7.2)
   '@evilmartians/lefthook':
-    specifier: ^1.1.1
-    version: 1.1.1
+    specifier: ^1.4.8
+    version: 1.4.8
   '@prisma/client':
     specifier: 4.16.2
     version: 4.16.2(prisma@5.0.0)
@@ -898,8 +898,8 @@ packages:
       '@ethersproject/strings': 5.7.0
     dev: false
 
-  /@evilmartians/lefthook@1.1.1:
-    resolution: {integrity: sha512-5C/AD937A6jz4mdBLAKXIeYVkxvLmPWxlv1YWfuHcIwZ2wp4W3z1Htjjtp+7gtO41CoCycIJcaxLfwaAsbS6qA==}
+  /@evilmartians/lefthook@1.4.8:
+    resolution: {integrity: sha512-skUfQjv+1ySL+reMdBb6aqnY+i6Dj4idp5zb6vnLye9RirqoE2ocAqOnW4qQ5I7NTzUT39xuirY9+OSS2Gh+sA==}
     cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
