@@ -15,8 +15,8 @@ dependencies:
     specifier: 5.2.0
     version: 5.2.0(prisma@5.2.0)
   alchemy-sdk:
-    specifier: 2.10.0
-    version: 2.10.0
+    specifier: 2.10.1
+    version: 2.10.1
   concurrently:
     specifier: 8.2.1
     version: 8.2.1
@@ -1801,8 +1801,8 @@ packages:
       uri-js: 4.4.1
     dev: true
 
-  /alchemy-sdk@2.10.0:
-    resolution: {integrity: sha512-pRmy9TK9kqQyz9r2Hh43ErlsII4XXQR2/JLdlCTKIyPh0/WuRoTxmLZqU/Q2pHFN4NBQcv0IFbXTPDkmTv2NeQ==}
+  /alchemy-sdk@2.10.1:
+    resolution: {integrity: sha512-zV6rBS2K0H3ickE28N7YiPvKPP9EQV+ZAiv9Zi3+aSzhcm0D1bkK+OS/+Tc7mU6EflSpZcDNC1fsLWlRqJOX4Q==}
     dependencies:
       '@ethersproject/abi': 5.7.0
       '@ethersproject/abstract-provider': 5.7.0
