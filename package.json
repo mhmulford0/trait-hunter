@@ -5,7 +5,7 @@
 	"dependencies": {
 		"@epnsproject/sdk-restapi": "0.1.20",
 		"@evilmartians/lefthook": "^1.5.2",
-		"@prisma/client": "5.3.1",
+		"@prisma/client": "5.5.2",
 		"alchemy-sdk": "2.10.1",
 		"concurrently": "8.2.2",
 		"cors": "2.8.5",
