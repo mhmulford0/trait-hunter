@@ -13,7 +13,7 @@ dependencies:
     version: 1.5.0
   '@prisma/client':
     specifier: 5.3.1
-    version: 5.3.1(prisma@5.3.1)
+    version: 5.3.1(prisma@5.5.2)
   alchemy-sdk:
     specifier: 2.10.1
     version: 2.10.1
@@ -104,8 +104,8 @@ devDependencies:
     specifier: 3.1.3
     version: 3.1.3(prettier@3.0.3)
   prisma:
-    specifier: 5.3.1
-    version: 5.3.1
+    specifier: 5.5.2
+    version: 5.5.2
   rimraf:
     specifier: 5.0.5
     version: 5.0.5
@@ -1281,7 +1281,7 @@ packages:
       tslib: 2.6.1
     dev: true
 
-  /@prisma/client@5.3.1(prisma@5.3.1):
+  /@prisma/client@5.3.1(prisma@5.5.2):
     resolution: {integrity: sha512-ArOKjHwdFZIe1cGU56oIfy7wRuTn0FfZjGuU/AjgEBOQh+4rDkB6nF+AGHP8KaVpkBIiHGPQh3IpwQ3xDMdO0Q==}
     engines: {node: '>=16.13'}
     requiresBuild: true
@@ -1292,15 +1292,15 @@ packages:
         optional: true
     dependencies:
       '@prisma/engines-version': 5.3.1-2.61e140623197a131c2a6189271ffee05a7aa9a59
-      prisma: 5.3.1
+      prisma: 5.5.2
     dev: false
 
   /@prisma/engines-version@5.3.1-2.61e140623197a131c2a6189271ffee05a7aa9a59:
     resolution: {integrity: sha512-y5qbUi3ql2Xg7XraqcXEdMHh0MocBfnBzDn5GbV1xk23S3Mq8MGs+VjacTNiBh3dtEdUERCrUUG7Z3QaJ+h79w==}
     dev: false
 
-  /@prisma/engines@5.3.1:
-    resolution: {integrity: sha512-6QkILNyfeeN67BNEPEtkgh3Xo2tm6D7V+UhrkBbRHqKw9CTaz/vvTP/ROwYSP/3JT2MtIutZm/EnhxUiuOPVDA==}
+  /@prisma/engines@5.5.2:
+    resolution: {integrity: sha512-Be5hoNF8k+lkB3uEMiCHbhbfF6aj1GnrTBnn5iYFT7GEr3TsOEp1soviEcBR0tYCgHbxjcIxJMhdbvxALJhAqg==}
     requiresBuild: true
 
   /@sapphire/async-queue@1.5.0:
@@ -4591,13 +4591,13 @@ packages:
       prettier: 3.0.3
     dev: true
 
-  /prisma@5.3.1:
-    resolution: {integrity: sha512-Wp2msQIlMPHe+5k5Od6xnsI/WNG7UJGgFUJgqv/ygc7kOECZapcSz/iU4NIEzISs3H1W9sFLjAPbg/gOqqtB7A==}
+  /prisma@5.5.2:
+    resolution: {integrity: sha512-WQtG6fevOL053yoPl6dbHV+IWgKo25IRN4/pwAGqcWmg7CrtoCzvbDbN9fXUc7QS2KK0LimHIqLsaCOX/vHl8w==}
     engines: {node: '>=16.13'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@prisma/engines': 5.3.1
+      '@prisma/engines': 5.5.2
 
   /prompts@2.4.2:
     resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
