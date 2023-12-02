@@ -27,6 +27,7 @@ const oracleContract = new ethers.Contract(CONTRACT_ADDRESS, oracleAbi, provider
 const oracleContractWithSigner = oracleContract.connect(signer);
 
 alchemy.ws.on('block', async () => {
+	console.log("On the hunt 🎯")
 	try {
 		const nextLil = await oracleContract.fetchNextNoun({blockTag: 'pending'});
 
