@@ -26,8 +26,10 @@ const CONTRACT_ADDRESS = '0x6c3810649c140d2f43Ec4D88B2f733e1375E4C74';
 const oracleContract = new ethers.Contract(CONTRACT_ADDRESS, oracleAbi, provider);
 const oracleContractWithSigner = oracleContract.connect(signer);
 
-alchemy.ws.on('block', async () => {
-	console.log("On the hunt 🎯")
+
+console.log("Starting the hunt 🤯 \n\n")
+alchemy.ws.on('block', async (blockNumber: number) => {
+	console.log(`On the hunt 🎯 ** 🧱 block number ${blockNumber} ** `)
 	try {
 		const nextLil = await oracleContract.fetchNextNoun({blockTag: 'pending'});
 
@@ -68,6 +70,10 @@ alchemy.ws.on('block', async () => {
 			console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
 			await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 		}
+
+		console.log("no targets found 😭")
+		console.log("___________________ \n\n")
+
 	} catch (err) {
 		console.log(err);
 	}
