@@ -1,6 +1,6 @@
 # Trait Hunter
 
-> _The hunter users the Lil Block Party Oracle to ensure that your transaction will only settle on the desired trait_
+> _The hunter uses the Lil Block Party Oracle to ensure that your transaction will only settle on the desired trait_
 
 ## Set Up
 
