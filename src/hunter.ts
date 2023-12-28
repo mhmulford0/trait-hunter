@@ -26,10 +26,9 @@ const CONTRACT_ADDRESS = '0x6c3810649c140d2f43Ec4D88B2f733e1375E4C74';
 const oracleContract = new ethers.Contract(CONTRACT_ADDRESS, oracleAbi, provider);
 const oracleContractWithSigner = oracleContract.connect(signer);
 
-
-console.log("Starting the hunt 🎯 \n\n")
+console.log('Starting the hunt 🎯 \n\n');
 alchemy.ws.on('block', async (blockNumber: number) => {
-	console.log(`On the hunt 👀 👀 ** 🧱 block number ${blockNumber} ** `)
+	console.log(`On the hunt 👀 👀 ** 🧱 block number ${blockNumber} ** `);
 	try {
 		const nextLil = await oracleContract.fetchNextNoun({blockTag: 'pending'});
 
@@ -47,33 +46,32 @@ alchemy.ws.on('block', async (blockNumber: number) => {
 		const accessoryTrait = accessory?.filename.slice(accessory.filename.indexOf('-') + 1);
 		const glassesTrait = glasses?.filename.slice(glasses.filename.indexOf('-') + 1);
 
-		if (headTrait === 'moose') {
-			console.log('FOUND A 🦌 moose');
+		if (headTrait === 'bigfoot') {
+			console.log('FOUND A BIGFOOT');
 			console.log('Starting Auction');
 
 			console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
 			await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 		}
 
-		if (headTrait === 'shark') {
-			console.log('FOUND A 🦈 shark');
+		if (headTrait === 'bigfoot') {
+			console.log('FOUND A BIGFOOT');
 			console.log('Starting Auction');
 
 			console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
 			await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 		}
 
-		if (headTrait === 'mushroom') {
-			console.log('FOUND A 🍄 mushroom');
+		if (headTrait === 'snowman') {
+			console.log('FOUND A BIGFOOT');
 			console.log('Starting Auction');
 
 			console.log('SEND IT 🚀🚀🚀🚀 REAL MONEY SETTLE 💵 ');
 			await oracleContractWithSigner.settleAuction(nextLil?.[0]);
 		}
 
-		console.log("no targets found 😭")
-		console.log("___________________ \n\n")
-
+		console.log('no targets found 😭');
+		console.log('___________________ \n\n');
 	} catch (err) {
 		console.log(err);
 	}
